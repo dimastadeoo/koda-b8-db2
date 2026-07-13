@@ -48,7 +48,7 @@ erDiagram
 
     transaction_types {
         int id_type PK
-        string name "Topup,Transfer,Payment,Withdraw"
+        string name "Topup,Transfer,Payment,Withdraw,Receive Transfer"
         enum category "DEBIT,CREDIT"
         float fee_amount "Biaya admin (jika ada)"
         float min_amount "Minimal transaksi"
