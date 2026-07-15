@@ -13,16 +13,22 @@ config:
 erDiagram
     users {
         int id_user PK
-        string name
-        string alamat
-        string gender
-        string place_birth
-        date date_birth
         string PIN "hashed/encrypted"
         string email UK
         string hp_number UK
         float balance
         enum status_account "active,suspended,blocked"
+        datetime created_at
+        datetime update_at
+    }
+    profiles {
+        int id PK
+        int id_user FK
+        string name
+        string alamat
+        string gender
+        string place_birth
+        date date_birth
         datetime created_at
         datetime update_at
     }
@@ -69,6 +75,7 @@ erDiagram
     }
 
     %% RELASI
+    users ||--o| profiles : "memiliki"
     users ||--o{ transactions : "melakukan"
     users ||--o{ activity_logs : "memiliki"
     users ||--o{ balance_history : "memiliki"
